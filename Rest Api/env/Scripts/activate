@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\sandy\OneDrive\Documentos\GitHub\exercicios-de-Flask\Rest Api\env"
+VIRTUAL_ENV="C:\Users\suporte\Documents\GitHub\exercicios-de-Flask\Rest Api\env"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
