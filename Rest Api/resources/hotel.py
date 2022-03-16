@@ -77,9 +77,8 @@ class Hotel(Resource):
     
     def put (self , hotel_id):
         dados=Hotel.argumentos.parse_args()
-        novo_hotel={
-            'hotel_id':hotel_id, **dados
-        }
+        hotel_obj=HotelModel(hotel_id,**dados)
+        novo_hotel=hotel_obj.json()
         hotel=Hotel.busca_hotel(hotel_id)
         if hotel != None:
             hotel.update(novo_hotel)
