@@ -28,10 +28,15 @@ class Hoteis(Resource):
         return {'hoteis':hoteis}
     
 class Hotel(Resource):
-    def get(self, hotel_id):
+    def busca_hotel(hotel_id):
         for hotel in hoteis:
             if hotel['hotel_id']== hotel_id:
                return hotel
+        return None
+    def get(self, hotel_id):
+        hotel=Hotel.busca_hotel(hotel_id)
+        if hotel != None:
+            return hotel    
         return {'massage':'Hotel not found'},404 #not found
     
     def post(self, hotel_id):
