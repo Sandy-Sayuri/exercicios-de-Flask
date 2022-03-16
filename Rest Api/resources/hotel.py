@@ -48,7 +48,6 @@ class Hotel(Resource):
     
     def post(self, hotel_id):
         dados=Hotel.argumentos.parse_args()
-        
         novo_hotel={
             'hotel_id':hotel_id,
             'nome':dados['nome'],
@@ -74,5 +73,7 @@ class Hotel(Resource):
     
     
     def delete(self , hotel_id):
-        pass
+        global hoteis
+        hoteis=[ hotel for hotel in hoteis if hotel['hotel_id'] != hotel_id ]
+        return{'message':'Hotel deleted.'}
     
