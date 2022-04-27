@@ -1,4 +1,4 @@
-from flask import Flask
+from Flask import Flask
 from flask_restful import Api
 from  resources.hotel import Hoteis,Hotel
 from sql_alchemy import banco
