@@ -41,9 +41,9 @@ class Hotel(Resource):
                return hotel
         return None
     def get(self, hotel_id):
-        hotel=Hotel.busca_hotel(hotel_id)
+        hotel=HotelModel.busca_hotel(hotel_id)
         if hotel != None:
-            return hotel    
+            return hotel.json()    
         return {'massage':'Hotel not found'},404 #not found
     
     
