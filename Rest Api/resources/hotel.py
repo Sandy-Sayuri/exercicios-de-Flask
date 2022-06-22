@@ -35,11 +35,7 @@ class Hotel(Resource):
     argumentos.add_argument('estrelas')
     argumentos.add_argument('diaria')
     argumentos.add_argument('cidade')
-    def busca_hotel(hotel_id):
-        for hotel in hoteis:
-            if hotel['hotel_id']== hotel_id:
-               return hotel
-        return None
+    
     def get(self, hotel_id):
         hotel=HotelModel.busca_hotel(hotel_id)
         if hotel != None:
@@ -53,12 +49,12 @@ class Hotel(Resource):
             return{'message':f"Hotel id {hotel_id} already exists"},400 
         
         dados=Hotel.argumentos.parse_args()
-        hotel_obj=HotelModel(hotel_id,**dados)
+        hotel=HotelModel(hotel_id,**dados)
         #novo_hotel=hotel_obj.json()#comvertendo os dados para json
         #hoteis.append(novo_hotel)
         #return novo_hotel,200
-        hotel_obj.save_hotel()
-        return hotel_obj.json()
+        hotel.save_hotel()
+        return hotel.json()
     
     def put (self , hotel_id):
         dados=Hotel.argumentos.parse_args()
